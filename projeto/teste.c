@@ -12,7 +12,6 @@ typedef pthread_t thread;
 mutex_t mutex;
 
 int rua[5] = {32, 32, 32, 32, 32};
-int id[5] = {32,32,32,32,32};
 
 void *rua_horizontal(){
     pthread_mutex_lock(&mutex);
@@ -20,8 +19,7 @@ void *rua_horizontal(){
     srand(time(NULL));
     int t = rand() % 10 + 1;
     while(j < t*5+1){
-        rua[i % 5] = 67;
-        id[i % 5] = 50;
+        rua[i % 5] = 65;
         printf("\n\n");
         printf("                     rua 1 \n");
         printf("                  +        +\n");
@@ -29,10 +27,10 @@ void *rua_horizontal(){
         printf("                  |        |\n");
         printf("                  |--------|\n");
         printf("                  |        |\n");
-        printf("                  |   C1   |\n");
+        printf("                  |   B    |\n");
         printf("      +-----------+\033[31m--------\033[39m+-----------+\n");
         printf("            |     \033[32m|\033[39m        |     |          \n");
-        printf("rua 4   %c%c  |  %c%c \033[32m|\033[39m    %c%c  |  %c%c |  %c%c   rua 2\n", rua[0],id[0], rua[1],id[1], rua[2],id[2], rua[3],id[3], rua[4],id[4]);
+        printf("rua 4   %c   |  %c  \033[32m|\033[39m    %c   |  %c  |  %c    rua 2\n", rua[0], rua[1], rua[2], rua[3], rua[4]);
         printf("            |     \033[32m|\033[39m        |     |          \n");
         printf("      +-----------+--------+-----------+\n");
         printf("                  |        |\n");
@@ -46,7 +44,6 @@ void *rua_horizontal(){
         system("clear");
         j++;
         rua[i % 5] = 32;
-        id[i % 5] = 32;
         i = i + 1;
     }
     pthread_mutex_unlock(&mutex);
@@ -59,25 +56,24 @@ void *rua_vertical(){
     srand(time(NULL));
     int t = rand() % 10 + 1;
     while(j < t*5+1){
-        rua[i % 5] = 67;
-        id[i % 5] = 49;
+        rua[i % 5] = 66;
         printf("\n\n");
         printf("                     rua 1 \n");
         printf("                  +        +\n");
         printf("                  |        |\n");
-        printf("                  |   %c%c   |\n", rua[0],id[0]);
+        printf("                  |   %c    |\n", rua[0]);
         printf("                  |--------|\n");
         printf("                  |        |\n");
-        printf("                  |   %c%c   |\n", rua[1],id[1]);
+        printf("                  |   %c    |\n", rua[1]);
         printf("      +-----------+\033[32m--------\033[39m+-----------+\n");
         printf("            |     \033[31m|\033[39m        |     |          \n");
-        printf("rua 4       |  C2 \033[31m|\033[39m   %c%c   |     |       rua 2\n", rua[2],id[2]);
+        printf("rua 4       |  A  \033[31m|\033[39m   %c    |     |       rua 2\n", rua[2]);
         printf("            |     \033[31m|\033[39m        |     |          \n");
         printf("      +-----------+--------+-----------+\n");
-        printf("                  |   %c%c   |\n", rua[3],id[3]);
+        printf("                  |   %c    |\n", rua[3]);
         printf("                  |        |\n");
         printf("                  |--------|\n");
-        printf("                  |   %c%c   |\n", rua[4],id[4]);
+        printf("                  |   %c    |\n", rua[4]);
         printf("                  |        |\n");
         printf("                  +        +\n");
         printf("                     rua 3 \n\n");
@@ -85,7 +81,6 @@ void *rua_vertical(){
         system("clear");
         j++;
         rua[i % 5] = 32;
-        id[i % 5] = 32;
         i = i + 1;
     }
     pthread_mutex_unlock(&mutex);
